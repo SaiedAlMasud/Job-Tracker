@@ -4,13 +4,338 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Tracker</title>
+    <!--Google font Link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <!--Tailwind CDN Link-->
      <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!--DaisyUI CDN Link-->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        *{
+            font-family: 'geist', sans-serif;
+        }
+    </style>
 </head>
-<body>
-    <h1 class="">Job Tracker</h1>
+<body class="bg-base-200 mx-auto my-4">
+    <header class="header lg:max-w-8/12 sm:max-10/12 mx-auto lg:p-2 ">
+        <section >
+            <h1 class="text-4xl font-bold my-4">Job Application Tracker</h1>
+        </section>
+        <div class="overview grid grid-cols-3 gap-8 my-6">
+                <div class="bg-white rounded-md p-4">
+                    <p>Total</p>
+                    <h3 class="text-2xl font-bold text-black-500">8</h3>
+                </div>
+                <div class="bg-white rounded-md p-4">
+                    <p>Interview</p>
+                    <h3 class="text-2xl font-bold text-green-500">0</h3>
+                </div>
+                <div class="bg-white rounded-md p-4">
+                    <p>Rejected</p>
+                    <h3 class="text-2xl font-bold text-red-500">0</h3>
+                </div>
+            </div>
+            <hr class="border-1 border-gray-300">
+    </header>
+    <main>
+        <section class="job-heading lg:max-w-8/12 sm:max-10/12 mx-auto lg:p-2 flex justify-between items-center">
+            <h1 class="text-2xl font-bold my-4 ">Available Jobs</h1>
+            <p class="text-gray-500 text-lg">8 jobs</p>
+        </section>
+        <section class="buttons lg:max-w-8/12 sm:max-10/12 mx-auto lg:p-2">
+            <button class="btn btn-primary w-24 mr-4">All</button>
+            <button class="btn text-gray-500 w-24 mr-4">Interview</button>
+            <button class="btn text-gray-500 w-24 ">Rejected</button>
+        </section>
+        <section class="job-card lg:max-w-8/12 sm:max-10/12 mx-auto lg:p-2">
+            <!--iniatial Job Card -->
+            <div class="card w-full bg-base-100 my-4">
+                <div class="card-body w-full">
+                    <!-- Header with title and delete button -->
+                    <div class="my-16 flex flex-col items-center justify-center">
+                            <img src="assets/jobs.png" alt="">
+                            <h1 class="text-2xl font-bold text-black-500 mt-4">No jobs available</h1>
+                            <p class="text-gray-500">Check back soon for new job opportunities</p>  
+                    </div>
+                </div>
+            </div>
+
+            <div class="card w-full bg-base-100 my-4">
+                <div class="card-body w-full">
+                    <!-- Header with title and delete button -->
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h2 class="card-title text-xl text-black-300">Mobile First Corp</h2>
+                            <p class="text-lg text-gray-500 mt-2">React Native Developer</p>
+                            <p class="text-[14px] text-gray-500 mt-2">Remote • Full-time • $130,000 - $175,000</p>
+                        </div>
+                        <button class="btn btn-ghost btn-circle text-gray-500 border-1 hover:bg-error/10 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Status badge -->
+                    <div class="not-applied mt-2">
+                        <span class="badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="text-black-500 text-[16px] mt-3">
+                        Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.
+                    </p>
+                    
+                    <!-- Action buttons -->
+                    <div class="card-actions mt-4">
+                        <button class="btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card w-full bg-base-100 my-4">
+                <div class="card-body w-full">
+                    <!-- Header with title and delete button -->
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h2 class="card-title text-xl text-black-300">WebFlow Agency</h2>
+                            <p class="text-lg text-gray-500 mt-2">Web Designer & Developer</p>
+                            <p class="text-[14px] text-gray-500 mt-2">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
+                        </div>
+                        <button class="btn btn-ghost btn-circle text-gray-500 border-1 hover:bg-error/10 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Status badge -->
+                    <div class="not-applied mt-2">
+                        <span class="badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="text-black-500 text-[16px] mt-3">
+                        Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.
+                    </p>
+                    
+                    <!-- Action buttons -->
+                    <div class="card-actions mt-4">
+                        <button class="btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card w-full bg-base-100 my-4">
+                <div class="card-body w-full">
+                    <!-- Header with title and delete button -->
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h2 class="card-title text-xl text-black-300">DataViz Solutions</h2>
+                            <p class="text-lg text-gray-500 mt-2">Data Visualization Specialist</p>
+                            <p class="text-[14px] text-gray-500 mt-2">Boston, MA  •  Full-time • $125,000 - $165,000</p>
+                        </div>
+                        <button class="btn btn-ghost btn-circle text-gray-500 border-1 hover:bg-error/10 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Status badge -->
+                    <div class="not-applied mt-2">
+                        <span class="badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="text-black-500 text-[16px] mt-3">
+                        Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.
+                    </p>
+                    
+                    <!-- Action buttons -->
+                    <div class="card-actions mt-4">
+                        <button class="btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card w-full bg-base-100 my-4">
+                <div class="card-body w-full">
+                    <!-- Header with title and delete button -->
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h2 class="card-title text-xl text-black-300">CloudFirst Inc</h2>
+                            <p class="text-lg text-gray-500 mt-2">Backend Developer</p>
+                            <p class="text-[14px] text-gray-500 mt-2">Seattle, WA • Full-time • $140,000 - $190,000</p>
+                        </div>
+                        <button class="btn btn-ghost btn-circle text-gray-500 border-1 hover:bg-error/10 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Status badge -->
+                    <div class="not-applied mt-2">
+                        <span class="badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="text-black-500 text-[16px] mt-3">
+                        Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.
+                    </p>
+                    
+                    <!-- Action buttons -->
+                    <div class="card-actions mt-4">
+                        <button class="btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card w-full bg-base-100 my-4">
+                <div class="card-body w-full">
+                    <!-- Header with title and delete button -->
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h2 class="card-title text-xl text-black-300">Innovation Labs</h2>
+                            <p class="text-lg text-gray-500 mt-2">UI/UX Engineer</p>
+                            <p class="text-[14px] text-gray-500 mt-2">Austin, TX •  Full-time • $110,000 - $150,000</p>
+                        </div>
+                        <button class="btn btn-ghost btn-circle text-gray-500 border-1 hover:bg-error/10 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Status badge -->
+                    <div class="not-applied mt-2">
+                        <span class="badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="text-black-500 text-[16px] mt-3">
+                        Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.
+                    </p>
+                    
+                    <!-- Action buttons -->
+                    <div class="card-actions mt-4">
+                        <button class="btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card w-full bg-base-100 my-4">
+                <div class="card-body w-full">
+                    <!-- Header with title and delete button -->
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h2 class="card-title text-xl text-black-300">MegaCorp Solutions</h2>
+                            <p class="text-lg text-gray-500 mt-2">JavaScript Developer</p>
+                            <p class="text-[14px] text-gray-500 mt-2">New York, NY •  Full-time •  $130,000 - $170,000</p>
+                        </div>
+                        <button class="btn btn-ghost btn-circle text-gray-500 border-1 hover:bg-error/10 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Status badge -->
+                    <div class="not-applied mt-2">
+                        <span class="badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="text-black-500 text-[16px] mt-3">
+                        Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.
+                    </p>
+                    
+                    <!-- Action buttons -->
+                    <div class="card-actions mt-4">
+                        <button class="btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card w-full bg-base-100 my-4">
+                <div class="card-body w-full">
+                    <!-- Header with title and delete button -->
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h2 class="card-title text-xl text-black-300">StartupXYZ</h2>
+                            <p class="text-lg text-gray-500 mt-2">Full Stack Engineer</p>
+                            <p class="text-[14px] text-gray-500 mt-2">Remote • Full-time • $120,000 - $160,000</p>
+                        </div>
+                        <button class="btn btn-ghost btn-circle text-gray-500 border-1 hover:bg-error/10 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Status badge -->
+                    <div class="not-applied mt-2">
+                        <span class="badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="text-black-500 text-[16px] mt-3">
+                        Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.
+                    </p>
+                    
+                    <!-- Action buttons -->
+                    <div class="card-actions mt-4">
+                        <button class="btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card w-full bg-base-100 my-4">
+                <div class="card-body w-full">
+                    <!-- Header with title and delete button -->
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h2 class="card-title text-xl text-black-300">TechCorp Industries</h2>
+                            <p class="text-lg text-gray-500 mt-2">Senior Frontend Developer</p>
+                            <p class="text-[14px] text-gray-500 mt-2">San Francisco, CA • Full-time • $130,000 - $175,000</p>
+                        </div>
+                        <button class="btn btn-ghost btn-circle text-gray-500 border-1 hover:bg-error/10 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Status badge -->
+                    <div class="not-applied mt-2">
+                        <span class="badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
+                    </div>
+                    
+                    <!-- Description -->
+                    <p class="text-black-500 text-[16px] mt-3">
+                        We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.
+                    </p>
+                    
+                    <!-- Action buttons -->
+                    <div class="card-actions mt-4">
+                        <button class="btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="btn btn-outline btn-error">REJECTED</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
