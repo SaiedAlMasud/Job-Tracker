@@ -51,6 +51,9 @@
             <button onclick="toggleStyle('interview-btn')" id="interview-btn" class="btn text-gray-500 w-24 mr-4">Interview</button>
             <button onclick="toggleStyle('rejected-btn')" id="rejected-btn" class="btn text-gray-500 w-24 ">Rejected</button>
         </section>
+        <section id="interviewed-list" class="lg:max-w-8/12 sm:max-10/12 mx-auto lg:p-2">
+
+        </section>
         <section id="all-cards" class="lg:max-w-8/12 sm:max-10/12 mx-auto lg:p-2">
             <!--iniatial Job Card -->
             
@@ -60,9 +63,9 @@
                     <!-- Header with title and delete button -->
                     <div class="flex items-start justify-between">
                         <div>
-                            <h2 class="card-title text-xl text-black-300">Mobile First Corp</h2>
-                            <p class="text-lg text-gray-500 mt-2">React Native Developer</p>
-                            <p class="text-[14px] text-gray-500 mt-2">Remote • Full-time • $130,000 - $175,000</p>
+                            <h2 class="job-title text-xl text-black-300">Mobile First Corp</h2>
+                            <p class="job-role text-lg text-gray-500 mt-2">React Native Developer</p>
+                            <p class="job-salary text-[14px] text-gray-500 mt-2">Remote • Full-time • $130,000 - $175,000</p>
                         </div>
                         <button class="btn btn-ghost btn-circle text-gray-500 border-1 hover:bg-error/10 ">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -73,18 +76,18 @@
                     
                     <!-- Status badge -->
                     <div class="not-applied mt-2">
-                        <span class="badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
+                        <span class="status-badge badge bg-[#EEF4FF] w-40 p-4 text-[16px] font-medium">NOT APPLIED</span>                        
                     </div>
                     
                     <!-- Description -->
-                    <p class="text-black-500 text-[16px] mt-3">
+                    <p class="job-description text-black-500 text-[16px] mt-3">
                         Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.
                     </p>
                     
                     <!-- Action buttons -->
                     <div class="card-actions mt-4">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="rejected-btn btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
             </div>
@@ -94,9 +97,9 @@
                     <!-- Header with title and delete button -->
                     <div class="flex items-start justify-between">
                         <div>
-                            <h2 class="card-title text-xl text-black-300">WebFlow Agency</h2>
-                            <p class="text-lg text-gray-500 mt-2">Web Designer & Developer</p>
-                            <p class="text-[14px] text-gray-500 mt-2">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
+                            <h2 class="job-title text-xl text-black-300">WebFlow Agency</h2>
+                            <p class="job-role text-lg text-gray-500 mt-2">Web Designer & Developer</p>
+                            <p class="job-salary text-[14px] text-gray-500 mt-2">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
                         </div>
                         <button class="btn btn-ghost btn-circle text-gray-500 border-1 hover:bg-error/10 ">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -107,18 +110,18 @@
                     
                     <!-- Status badge -->
                     <div class="not-applied mt-2">
-                        <span class="badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
+                        <span class="status-badge badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
                     </div>
                     
                     <!-- Description -->
-                    <p class="text-black-500 text-[16px] mt-3">
+                    <p class="job-description text-black-500 text-[16px] mt-3">
                         Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.
                     </p>
                     
                     <!-- Action buttons -->
                     <div class="card-actions mt-4">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="rejected-btn btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
             </div>
@@ -128,9 +131,9 @@
                     <!-- Header with title and delete button -->
                     <div class="flex items-start justify-between">
                         <div>
-                            <h2 class="card-title text-xl text-black-300">DataViz Solutions</h2>
-                            <p class="text-lg text-gray-500 mt-2">Data Visualization Specialist</p>
-                            <p class="text-[14px] text-gray-500 mt-2">Boston, MA  •  Full-time • $125,000 - $165,000</p>
+                            <h2 class="job-title text-xl text-black-300">DataViz Solutions</h2>
+                            <p class="job-role text-lg text-gray-500 mt-2">Data Visualization Specialist</p>
+                            <p class="job-salary text-[14px] text-gray-500 mt-2">Boston, MA  •  Full-time • $125,000 - $165,000</p>
                         </div>
                         <button class="btn btn-ghost btn-circle text-gray-500 border-1 hover:bg-error/10 ">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -141,18 +144,18 @@
                     
                     <!-- Status badge -->
                     <div class="not-applied mt-2">
-                        <span class="badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
+                        <span class="status-badge badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
                     </div>
                     
                     <!-- Description -->
-                    <p class="text-black-500 text-[16px] mt-3">
+                    <p class="job-description text-black-500 text-[16px] mt-3">
                         Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.
                     </p>
                     
                     <!-- Action buttons -->
                     <div class="card-actions mt-4">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="rejected-btn btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
             </div>
@@ -162,9 +165,9 @@
                     <!-- Header with title and delete button -->
                     <div class="flex items-start justify-between">
                         <div>
-                            <h2 class="card-title text-xl text-black-300">CloudFirst Inc</h2>
-                            <p class="text-lg text-gray-500 mt-2">Backend Developer</p>
-                            <p class="text-[14px] text-gray-500 mt-2">Seattle, WA • Full-time • $140,000 - $190,000</p>
+                            <h2 class="job-title text-xl text-black-300">CloudFirst Inc</h2>
+                            <p class="job-role text-lg text-gray-500 mt-2">Backend Developer</p>
+                            <p class="job-salary text-[14px] text-gray-500 mt-2">Seattle, WA • Full-time • $140,000 - $190,000</p>
                         </div>
                         <button class="btn btn-ghost btn-circle text-gray-500 border-1 hover:bg-error/10 ">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -175,18 +178,18 @@
                     
                     <!-- Status badge -->
                     <div class="not-applied mt-2">
-                        <span class="badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
+                        <span class="status-badge badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
                     </div>
                     
                     <!-- Description -->
-                    <p class="text-black-500 text-[16px] mt-3">
+                    <p class="job-description text-black-500 text-[16px] mt-3">
                         Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.
                     </p>
                     
                     <!-- Action buttons -->
                     <div class="card-actions mt-4">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="rejected-btn btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
             </div>
@@ -196,9 +199,9 @@
                     <!-- Header with title and delete button -->
                     <div class="flex items-start justify-between">
                         <div>
-                            <h2 class="card-title text-xl text-black-300">Innovation Labs</h2>
-                            <p class="text-lg text-gray-500 mt-2">UI/UX Engineer</p>
-                            <p class="text-[14px] text-gray-500 mt-2">Austin, TX •  Full-time • $110,000 - $150,000</p>
+                            <h2 class="job-title text-xl text-black-300">Innovation Labs</h2>
+                            <p class="job-role text-lg text-gray-500 mt-2">UI/UX Engineer</p>
+                            <p class="job-salary text-[14px] text-gray-500 mt-2">Austin, TX •  Full-time • $110,000 - $150,000</p>
                         </div>
                         <button class="btn btn-ghost btn-circle text-gray-500 border-1 hover:bg-error/10 ">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -209,18 +212,18 @@
                     
                     <!-- Status badge -->
                     <div class="not-applied mt-2">
-                        <span class="badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
+                        <span class="status-badge badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
                     </div>
                     
                     <!-- Description -->
-                    <p class="text-black-500 text-[16px] mt-3">
+                    <p class="job-description text-black-500 text-[16px] mt-3">
                         Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.
                     </p>
                     
                     <!-- Action buttons -->
                     <div class="card-actions mt-4">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="rejected-btn btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
             </div>
@@ -230,9 +233,9 @@
                     <!-- Header with title and delete button -->
                     <div class="flex items-start justify-between">
                         <div>
-                            <h2 class="card-title text-xl text-black-300">MegaCorp Solutions</h2>
-                            <p class="text-lg text-gray-500 mt-2">JavaScript Developer</p>
-                            <p class="text-[14px] text-gray-500 mt-2">New York, NY •  Full-time •  $130,000 - $170,000</p>
+                            <h2 class="job-title text-xl text-black-300">MegaCorp Solutions</h2>
+                            <p class="job-role text-lg text-gray-500 mt-2">JavaScript Developer</p>
+                            <p class="job-salary text-[14px] text-gray-500 mt-2">New York, NY •  Full-time •  $130,000 - $170,000</p>
                         </div>
                         <button class="btn btn-ghost btn-circle text-gray-500 border-1 hover:bg-error/10 ">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -243,18 +246,18 @@
                     
                     <!-- Status badge -->
                     <div class="not-applied mt-2">
-                        <span class="badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
+                        <span class="status-badge badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
                     </div>
                     
                     <!-- Description -->
-                    <p class="text-black-500 text-[16px] mt-3">
+                    <p class="job-description text-black-500 text-[16px] mt-3">
                         Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.
                     </p>
                     
                     <!-- Action buttons -->
                     <div class="card-actions mt-4">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="rejected-btn btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
             </div>
@@ -264,9 +267,9 @@
                     <!-- Header with title and delete button -->
                     <div class="flex items-start justify-between">
                         <div>
-                            <h2 class="card-title text-xl text-black-300">StartupXYZ</h2>
-                            <p class="text-lg text-gray-500 mt-2">Full Stack Engineer</p>
-                            <p class="text-[14px] text-gray-500 mt-2">Remote • Full-time • $120,000 - $160,000</p>
+                            <h2 class="job-title text-xl text-black-300">StartupXYZ</h2>
+                            <p class="job-role text-lg text-gray-500 mt-2">Full Stack Engineer</p>
+                            <p class="job-salary text-[14px] text-gray-500 mt-2">Remote • Full-time • $120,000 - $160,000</p>
                         </div>
                         <button class="btn btn-ghost btn-circle text-gray-500 border-1 hover:bg-error/10 ">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -277,18 +280,18 @@
                     
                     <!-- Status badge -->
                     <div class="not-applied mt-2">
-                        <span class="badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
+                        <span class="status-badge badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
                     </div>
                     
                     <!-- Description -->
-                    <p class="text-black-500 text-[16px] mt-3">
+                    <p class="job-description text-black-500 text-[16px] mt-3">
                         Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.
                     </p>
                     
                     <!-- Action buttons -->
                     <div class="card-actions mt-4">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="rejected-btn btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
             </div>
@@ -298,9 +301,9 @@
                     <!-- Header with title and delete button -->
                     <div class="flex items-start justify-between">
                         <div>
-                            <h2 class="card-title text-xl text-black-300">TechCorp Industries</h2>
-                            <p class="text-lg text-gray-500 mt-2">Senior Frontend Developer</p>
-                            <p class="text-[14px] text-gray-500 mt-2">San Francisco, CA • Full-time • $130,000 - $175,000</p>
+                            <h2 class="job-title text-xl text-black-300">TechCorp Industries</h2>
+                            <p class="job-role text-lg text-gray-500 mt-2">Senior Frontend Developer</p>
+                            <p class="job-salary text-[14px] text-gray-500 mt-2">San Francisco, CA • Full-time • $130,000 - $175,000</p>
                         </div>
                         <button class="btn btn-ghost btn-circle text-gray-500 border-1 hover:bg-error/10 ">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -311,18 +314,18 @@
                     
                     <!-- Status badge -->
                     <div class="not-applied mt-2">
-                        <span class="badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
+                        <span class="status-badge badge bg-[#EEF4FF] w-36 p-4 text-[16px] font-medium">NOT APPLIED</span>
                     </div>
                     
                     <!-- Description -->
-                    <p class="text-black-500 text-[16px] mt-3">
+                    <p class="job-description text-black-500 text-[16px] mt-3">
                         We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.
                     </p>
                     
                     <!-- Action buttons -->
                     <div class="card-actions mt-4">
-                        <button class="btn btn-outline btn-success">INTERVIEW</button>
-                        <button class="btn btn-outline btn-error">REJECTED</button>
+                        <button class="interview-btn btn btn-outline btn-success">INTERVIEW</button>
+                        <button class="rejected-btn btn btn-outline btn-error">REJECTED</button>
                     </div>
                 </div>
             </div>
