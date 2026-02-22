@@ -34,6 +34,19 @@ function toggleStyle(id){
     //add primary style to the selected button
     const selectedBtn = getValueFromId(id);
     selectedBtn.classList.add("btn-primary");
+
+    if(id === "interview-btn"){
+        allJobCards.classList.add("hidden");
+        interviewList.classList.remove("hidden");
+    }
+    else if(id === "all-btn"){
+        allJobCards.classList.remove("hidden");
+        interviewList.classList.add("hidden");
+    }
+    else if(id === "rejected-btn"){
+        allJobCards.classList.add("hidden");
+        interviewList.classList.add("hidden");
+    }
 }
 
 mainContainer.addEventListener("click", function(event){
@@ -60,13 +73,13 @@ mainContainer.addEventListener("click", function(event){
             console.log("Added to interviewed: ", jobData);
         }
         renderInterviewedList(); 
-        }
+    }
 });
 
 
 function renderInterviewedList(){
     interviewList.innerHTML = ""; // Clear previous content
-    jobStatus.classList.add("hidden");
+    //jobStatus.classList.add("hidden");
     for(let job of interviewed){
         let div = document.createElement("div");
         div.classList.add("card", "w-full", "bg-base-100", "my-4");
