@@ -28,15 +28,15 @@
         <div class="overview grid grid-cols-3 gap-8 my-6">
                 <div class="bg-white rounded-md p-4">
                     <p>Total</p>
-                    <h3 class="text-2xl font-bold text-black-500">8</h3>
+                    <h3 id="total-jobs" class="text-2xl font-bold text-black-500">8</h3>
                 </div>
                 <div class="bg-white rounded-md p-4">
                     <p>Interview</p>
-                    <h3 class="text-2xl font-bold text-green-500">0</h3>
+                    <h3 id="interview-jobs" class="text-2xl font-bold text-green-500">0</h3>
                 </div>
                 <div class="bg-white rounded-md p-4">
                     <p>Rejected</p>
-                    <h3 class="text-2xl font-bold text-red-500">0</h3>
+                    <h3 id="rejected-jobs" class="text-2xl font-bold text-red-500">0</h3>
                 </div>
             </div>
             <hr class="border-1 border-gray-300">
@@ -47,22 +47,13 @@
             <p class="text-gray-500 text-lg">8 jobs</p>
         </section>
         <section class="buttons lg:max-w-8/12 sm:max-10/12 mx-auto lg:p-2">
-            <button class="btn btn-primary w-24 mr-4">All</button>
-            <button class="btn text-gray-500 w-24 mr-4">Interview</button>
-            <button class="btn text-gray-500 w-24 ">Rejected</button>
+            <button onclick="toggleStyle('all-btn')" id="all-btn" class="btn btn-primary w-24 mr-4">All</button>
+            <button onclick="toggleStyle('interview-btn')" id="interview-btn" class="btn text-gray-500 w-24 mr-4">Interview</button>
+            <button onclick="toggleStyle('rejected-btn')" id="rejected-btn" class="btn text-gray-500 w-24 ">Rejected</button>
         </section>
-        <section class="job-card lg:max-w-8/12 sm:max-10/12 mx-auto lg:p-2">
+        <section id="all-cards" class="lg:max-w-8/12 sm:max-10/12 mx-auto lg:p-2">
             <!--iniatial Job Card -->
-            <div class="card w-full bg-base-100 my-4">
-                <div class="card-body w-full">
-                    <!-- Header with title and delete button -->
-                    <div class="my-16 flex flex-col items-center justify-center">
-                            <img src="assets/jobs.png" alt="">
-                            <h1 class="text-2xl font-bold text-black-500 mt-4">No jobs available</h1>
-                            <p class="text-gray-500">Check back soon for new job opportunities</p>  
-                    </div>
-                </div>
-            </div>
+            
 
             <div class="card w-full bg-base-100 my-4">
                 <div class="card-body w-full">
@@ -339,5 +330,6 @@
     </main>
     <!-- script files -->
     <script src="script/functions.js"></script>
+    <script src="script/script.js"></script>
 </body>
 </html>
