@@ -4,6 +4,7 @@ let rejected = [];
 let totalCount = getValueFromId("total-jobs");
 let interviewCount = getValueFromId("interview-jobs");
 let rejectedCount = getValueFromId("rejected-jobs");
+let currentStatus = "";
 
 //geting elements
 const allJobCards = getValueFromId("all-cards");
@@ -14,6 +15,7 @@ const interviewBtn = getValueFromId("interview-btn");
 const rejectedBtn = getValueFromId("rejected-btn");
 const interviewList = getValueFromId("interviewed-list");
 const rejectedList = getValueFromId("rejected-list");
+const noJobSection = getValueFromId("no-jobs-section");
 
 //console.log("all cards: ", allJobCards);
 
@@ -26,7 +28,7 @@ function calculateCounts(){
 calculateCounts();
 
 function toggleStyle(id){
-    console.log("Toggling style for id: ", id);
+    //console.log("Toggling style for id: ", id);
     //reset all buttons to default style
     allBtn.classList.remove("btn-primary", "text-gray-500");
     interviewBtn.classList.remove("btn-primary", "text-gray-500");
@@ -35,19 +37,28 @@ function toggleStyle(id){
     //add primary style to the selected button
     const selectedBtn = getValueFromId(id);
     selectedBtn.classList.add("btn-primary");
+    currentStatus = id;
 
-    if(id === "interview-btn"){
-        allJobCards.classList.add("hidden");
-        interviewList.classList.remove("hidden");
-    }
-    else if(id === "all-btn"){
+    if(id === "all-btn"){
         allJobCards.classList.remove("hidden");
         interviewList.classList.add("hidden");
+        rejectedList.classList.add("hidden");
+        noJobSection.classList.add("hidden");
+
+    }
+    else if(id === "interview-btn"){
+        allJobCards.classList.add("hidden");
+        interviewList.classList.remove("hidden");
+        rejectedList.classList.add("hidden");
+        noJobSection.classList.add("hidden");
+        renderInterviewedList();
     }
     else if(id === "rejected-btn"){
         allJobCards.classList.add("hidden");
         interviewList.classList.add("hidden");
         rejectedList.classList.remove("hidden");
+        noJobSection.classList.add("hidden");
+        renderRejectedList();
     }
 }
 
@@ -59,7 +70,7 @@ mainContainer.addEventListener("click", function(event){
         const jobRole = card.querySelector(".job-role").innerText;
         const jobSalary = card.querySelector(".job-salary").innerText;
         const jobDescription = card.querySelector(".job-description").innerText;
-        const jobStatus = card.querySelector(".status-badge").innerHTML;
+        const jobStatus = card.querySelector(".status-badge");
         const jobData = {
             jobTitle,
             jobRole,
@@ -70,11 +81,18 @@ mainContainer.addEventListener("click", function(event){
         //console.log("Job data: ", jobData);
         const jobExistsInterview = interviewed.find(job => job.jobTitle === jobTitle);
         if(!jobExistsInterview){
+            jobStatus.innerHTML = "INTERVIEW";
             interviewed.push(jobData);
-            calculateCounts();
-            console.log("Added to interviewed: ", jobData);
+            //console.log("Added to interviewed: ", jobData);
         }
-        renderInterviewedList(); 
+        // Remove job from interviewed list if it exists
+        rejected = rejected.filter(job => job.jobTitle !== jobTitle);
+        
+
+        if(currentStatus === "rejected-btn"){
+            renderRejectedList();
+        }
+        calculateCounts();
     }
     else if(event.target.classList.contains("rejected-btn")){
         //console.log("Parent element:", event.target.parentNode.parentNode);
@@ -83,7 +101,7 @@ mainContainer.addEventListener("click", function(event){
         const jobRole = card.querySelector(".job-role").innerText;
         const jobSalary = card.querySelector(".job-salary").innerText;
         const jobDescription = card.querySelector(".job-description").innerText;
-        const jobStatus = card.querySelector(".status-badge").innerHTML;
+        const jobStatus = card.querySelector(".status-badge");
         const jobData = {
             jobTitle,
             jobRole,
@@ -94,11 +112,18 @@ mainContainer.addEventListener("click", function(event){
         //console.log("Job data: ", jobData);
         const jobExistsInterview = rejected.find(job => job.jobTitle === jobTitle);
         if(!jobExistsInterview){
+            jobStatus.innerHTML = "REJECTED";
             rejected.push(jobData);
-            calculateCounts();
             console.log("Added to rejected: ", jobData);
         }
-        renderRejectedList(); 
+        // Remove job from interviewed list if it exists
+        interviewed = interviewed.filter(job => job.jobTitle !== jobTitle);
+        
+        
+        if(currentStatus === "interview-btn"){
+            renderInterviewedList();
+        } 
+        calculateCounts();
     }
 });
 
