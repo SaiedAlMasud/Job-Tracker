@@ -44,6 +44,9 @@ function toggleStyle(id){
         interviewList.classList.add("hidden");
         rejectedList.classList.add("hidden");
         noJobSection.classList.add("hidden");
+
+        // Update job count
+        document.getElementById("job-count").innerText = allJobCards.children.length + ' jobs';
     }
     else if(id === "interview-btn"){
         allJobCards.classList.add("hidden");
@@ -54,11 +57,15 @@ function toggleStyle(id){
         if(interviewed.length === 0){
             noJobSection.classList.remove("hidden");
             interviewList.classList.add("hidden");
+            // Update job count to 0
+            document.getElementById("job-count").innerText = '0 jobs';
         }
         //otherwise show the interview list
         else{       
             interviewList.classList.remove("hidden");
-            renderInterviewedList();     
+             renderInterviewedList();
+            // Update job count to interview count
+            document.getElementById("job-count").innerText = interviewed.length + ' jobs';   
         }
     }
     else if(id === "rejected-btn"){
@@ -70,11 +77,15 @@ function toggleStyle(id){
         if(rejected.length === 0){
             noJobSection.classList.remove("hidden");
             rejectedList.classList.add("hidden");
+            // Update job count to 0
+            document.getElementById("job-count").innerText = '0 jobs';
         }
         //otherwise show the rejected list
         else{
             rejectedList.classList.remove("hidden");
             renderRejectedList();
+            // Update job count to rejected count
+            document.getElementById("job-count").innerText = rejected.length + ' jobs';
         }
     }
 }
@@ -100,6 +111,10 @@ mainContainer.addEventListener("click", function(event){
         if(!jobExistsInterview){
             jobStatus.innerHTML = "INTERVIEW";
             interviewed.push(jobData);
+            // Update job count if on interview tab
+            if(currentStatus === "interview-btn"){
+                document.getElementById("job-count").innerText = interviewed.length + ' jobs';
+            }
         }
         // Remove job from interviewed list if it exists
         rejected = rejected.filter(job => job.jobTitle !== jobTitle);
@@ -130,7 +145,11 @@ mainContainer.addEventListener("click", function(event){
         if(!jobExistsInterview){
             jobStatus.innerHTML = "REJECTED";
             rejected.push(jobData);
-            console.log("Added to rejected: ", jobData);
+            //console.log("Added to rejected: ", jobData);
+            // Update job count if on rejected tab
+            if(currentStatus === "rejected-btn"){
+                document.getElementById("job-count").innerText = rejected.length + ' jobs';
+            }
         }
         // Remove job from interviewed list if it exists
         interviewed = interviewed.filter(job => job.jobTitle !== jobTitle);
@@ -171,10 +190,31 @@ mainContainer.addEventListener("click", function(event){
         // Update counts
         calculateCounts();
 
+        // Update all tab job count immediately
+        if(currentStatus === "all-btn") {
+            document.getElementById("job-count").innerText = allJobCards.children.length + ' jobs';
+        } 
+
+        else if(currentStatus === "interview-btn") {
+            document.getElementById("job-count").innerText = interviewed.length + ' jobs';
+            
+            // Check if we need to show no-job section
+            if(interviewed.length === 0) {
+                interviewList.classList.add("hidden");
+                noJobSection.classList.remove("hidden");
+            }
+        } 
         
-    }
-    
-    
+        else if(currentStatus === "rejected-btn") {
+            document.getElementById("job-count").innerText = rejected.length + ' jobs';
+            
+            // Check if we need to show no-job section
+            if(rejected.length === 0) {
+                rejectedList.classList.add("hidden");
+                noJobSection.classList.remove("hidden");
+            }
+        }
+    }   
 });
 
 
