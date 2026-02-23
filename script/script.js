@@ -44,21 +44,38 @@ function toggleStyle(id){
         interviewList.classList.add("hidden");
         rejectedList.classList.add("hidden");
         noJobSection.classList.add("hidden");
-
     }
     else if(id === "interview-btn"){
         allJobCards.classList.add("hidden");
-        interviewList.classList.remove("hidden");
+        //interviewList.classList.remove("hidden");
         rejectedList.classList.add("hidden");
         noJobSection.classList.add("hidden");
-        renderInterviewedList();
+        //if the interviwed array is empty no-job section will show
+        if(interviewed.length === 0){
+            noJobSection.classList.remove("hidden");
+            interviewList.classList.add("hidden");
+        }
+        //otherwise show the interview list
+        else{       
+            interviewList.classList.remove("hidden");
+            renderInterviewedList();     
+        }
     }
     else if(id === "rejected-btn"){
         allJobCards.classList.add("hidden");
         interviewList.classList.add("hidden");
-        rejectedList.classList.remove("hidden");
+        //rejectedList.classList.remove("hidden");
         noJobSection.classList.add("hidden");
-        renderRejectedList();
+        //if the rejected array is empty no-job section will show
+        if(rejected.length === 0){
+            noJobSection.classList.remove("hidden");
+            rejectedList.classList.add("hidden");
+        }
+        //otherwise show the rejected list
+        else{
+            rejectedList.classList.remove("hidden");
+            renderRejectedList();
+        }
     }
 }
 
@@ -83,7 +100,6 @@ mainContainer.addEventListener("click", function(event){
         if(!jobExistsInterview){
             jobStatus.innerHTML = "INTERVIEW";
             interviewed.push(jobData);
-            //console.log("Added to interviewed: ", jobData);
         }
         // Remove job from interviewed list if it exists
         rejected = rejected.filter(job => job.jobTitle !== jobTitle);
@@ -125,6 +141,40 @@ mainContainer.addEventListener("click", function(event){
         } 
         calculateCounts();
     }
+    
+    // Delete button functionality
+    if(event.target.closest('.btn-ghost.btn-circle')) {
+        const card = event.target.closest('.card');
+        const jobTitle = card.querySelector(".job-title").innerText;
+        
+        // Remove from allJobCards if it's there
+        if(allJobCards.contains(card)) {
+            card.remove();
+        }
+        
+        // Remove from interviewed array if exists
+        interviewed = interviewed.filter(job => job.jobTitle !== jobTitle);
+        
+        // Remove from rejected array if exists
+        rejected = rejected.filter(job => job.jobTitle !== jobTitle);
+        
+        // Remove from interviewList if currently showing
+        if(interviewList.contains(card)) {
+            card.remove();
+        }
+        
+        // Remove from rejectedList if currently showing
+        if(rejectedList.contains(card)) {
+            card.remove();
+        }
+        
+        // Update counts
+        calculateCounts();
+
+        
+    }
+    
+    
 });
 
 
